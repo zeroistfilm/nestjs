@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
-import { UserService } from './application/service/user.service';
-import { UsersController } from './adapter/in/web/users.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from './adapter/out/persistence/user.entity';
 import { Web2LoginEntity } from './adapter/out/persistence/web2Login.entity';
+import { Web3LoginEntity } from './adapter/out/persistence/web3Login.entity';
+import { UsersController } from './adapter/in/web/users.controller';
+import { UserService } from './application/service/user.service';
 import { JwtService } from '@nestjs/jwt';
 import { UserRepositoryAWS } from './adapter/out/persistence/user.repository.AWS';
 import { Web3LoginClient } from './adapter/out/client/web3Login.client';
-import { Web3LoginEntity } from './adapter/out/persistence/web3Login.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([UserEntity, Web2LoginEntity, Web3LoginEntity])],

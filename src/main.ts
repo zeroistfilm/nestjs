@@ -9,11 +9,7 @@ import * as fs from 'fs';
 
 dotenv.config({
   path: path.resolve(
-    process.env.NODE_ENV === 'prod'
-      ? '.prod.env'
-      : process.env.NODE_ENV === 'dev'
-      ? '.dev.env'
-      : '.dev.env',
+    process.env.NODE_ENV === 'prod' ? '.prod.env' : process.env.NODE_ENV === 'dev' ? '.dev.env' : '.dev.env',
   ),
 });
 
