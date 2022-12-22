@@ -13,7 +13,7 @@ export class AwsClient implements AwsClientInterface {
     });
     const s3 = new AWS.S3();
     const params = {
-      Bucket: 'dropbase.tpx',
+      Bucket: 'dropbase.tpx.second',
       Key: 'temp/' + Buffer.from(file.originalname, 'latin1').toString('utf8'),
       Body: file.buffer,
     };
