@@ -1,0 +1,53 @@
+<!--
+- S3 + CloudFront버킷 세팅 참고자료
+http://lab.naminsik.com/3960
+https://blog.bespinglobal.com/post/aws-%EB%AF%B8%EB%94%94%EC%96%B4-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%ED%8C%8C%EC%9D%BC-%EC%8A%A4%ED%8A%B8%EB%A6%AC%EB%B0%8D/
+- AWS videoConvert 참고자료
+https://dev.classmethod.jp/articles/try-converting-files-in-aws-elemental-media-convert/
+- videojs 참고자료
+https://ibks-platform.tistory.com/397
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hls_test</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.20.1/video-js.min.css"
+        integrity="sha512-D/n19dhr+LY8HOoGuybX+bJYsZOFKb0r7YpAWBMPg5Hnke6lxdHl6q21d7qiwIsMgdSnBG9pSMQlwTtZ+6ISmw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.20.1/video.min.js"
+          integrity="sha512-xT61DWoPRoAa4ir+LqER5L4/zzuO5tQOQywZYqU8BaZVqolq78bRobozDxozcCZ6tmo92zetGVQHRp+sQHIi/g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+
+<body>
+<video id="my_video" class="video-js" controls width="800" height="500">
+
+<script>
+  var player = videojs('my_video',{
+    autoplay: true,
+    controls: true,
+    controlBar : {
+      playToggle : false,
+      pictureInPictureToggle : false,
+      remainingTimeDisplay : false,
+      progressControl : false,
+    },
+    preload: 'auto',
+    fluid: true,
+    sources: [{
+      src: 'https://dgr2qbao3x4a0.cloudfront.net/temp/Fish.m3u8',
+      type: 'application/x-mpegURL'
+    }]
+  });
+  player.play();
+
+</script>
+
+</body>
+
+</html>
